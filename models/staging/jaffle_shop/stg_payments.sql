@@ -6,7 +6,7 @@ with payments as (
         status,
         amount / 100 as amount,
         created
-    from stripe_payments.stripe_payments
+    from {{ source('stripe_payments', 'stripe_payments')}}
 )
 
 select * from payments
